@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
   @Autowired UserRepository userRepository;
   @Autowired UCSBCurriculumService ucsbCurriculumService;
+  
 
   @Operation(summary = &quot;Get course data for a given quarter, department, and level&quot;)
   @GetMapping(value = &quot;/basicsearch&quot;, produces = &quot;application/json&quot;)
@@ -27,9 +28,9 @@ import org.springframework.web.bind.annotation.RestController;
       @RequestParam String qtr, @RequestParam String dept, @RequestParam String level)
       throws Exception {
 
-<span class="fc" id="L30">    String body = ucsbCurriculumService.getJSON(dept, qtr, level);</span>
+<span class="nc" id="L31">    String body = ucsbCurriculumService.getJSON(dept, qtr, level);</span>
 
-<span class="fc" id="L32">    return ResponseEntity.ok().body(body);</span>
+<span class="nc" id="L33">    return ResponseEntity.ok().body(body);</span>
   }
 
   // Backend for final exam info, similar to the above operation:
@@ -39,9 +40,17 @@ import org.springframework.web.bind.annotation.RestController;
       @RequestParam String quarterYYYYQ, @RequestParam String enrollCd)
       throws Exception { // Looks for quarter and code
 
-<span class="fc" id="L42">    String body = ucsbCurriculumService.getFinalsInfo(quarterYYYYQ, enrollCd);</span>
+<span class="nc" id="L43">    String body = ucsbCurriculumService.getFinalsInfo(quarterYYYYQ, enrollCd);</span>
 
-<span class="fc" id="L44">    return ResponseEntity.ok().body(body);</span>
+<span class="nc" id="L45">    return ResponseEntity.ok().body(body);</span>
+  }
+
+  // Backend for General Education Requirement Information, similar to above operation
+  @Operation(summary = &quot;Get list of General Education Areas&quot;)
+  @GetMapping(value = &quot;/generalEducationInfo&quot;, produces = &quot;application/json&quot;)
+  public ResponseEntity&lt;String[]&gt; generalEducationInfo() throws Exception {
+<span class="fc" id="L52">    String[] body= ucsbCurriculumService.getGeInfo();</span>
+<span class="fc" id="L53">    return ResponseEntity.ok().body(body);</span>
   }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

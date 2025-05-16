@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-s25/proj-courses-s25-01
 owner: ucsb-cs156-s25
 repo_name: proj-courses-s25-01
-pull_requests: []
+pull_requests: [{"author":{"id":"U_kgDOBYMMkw","is_bot":false,"login":"EyobTe","name":""},"headRefName":"courses-eyobte-GE-API","number":21,"title":"Courses eyobte ge api","url":"https://github.com/ucsb-cs156-s25/proj-courses-s25-01/pull/21"}]

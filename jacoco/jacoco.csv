@@ -3,7 +3,7 @@ courses,edu.ucsb.cs156.courses.controllers,CSRFController,0,5,0,0,0,2,0,2,0,2
 courses,edu.ucsb.cs156.courses.controllers,EnrollmentController,0,98,0,2,0,21,0,5,0,4
 courses,edu.ucsb.cs156.courses.controllers,PersonalSectionsController,0,82,0,2,0,18,0,5,0,4
 courses,edu.ucsb.cs156.courses.controllers,PersonalSchedulesController,0,348,0,16,0,79,0,26,0,18
-courses,edu.ucsb.cs156.courses.controllers,UCSBCurriculumController,21,15,0,0,4,4,2,3,2,3
+courses,edu.ucsb.cs156.courses.controllers,UCSBCurriculumController,0,36,0,0,0,8,0,5,0,5
 courses,edu.ucsb.cs156.courses.controllers,UCSBAPIQuarterController,0,25,0,0,0,7,0,6,0,6
 courses,edu.ucsb.cs156.courses.controllers,UCSBSectionsController,0,29,0,0,0,6,0,3,0,3
 courses,edu.ucsb.cs156.courses.controllers,UsersController,0,16,0,0,0,4,0,2,0,2

@@ -28,9 +28,9 @@ import org.springframework.web.bind.annotation.RestController;
       @RequestParam String qtr, @RequestParam String dept, @RequestParam String level)
       throws Exception {
 
-<span class="nc" id="L31">    String body = ucsbCurriculumService.getJSON(dept, qtr, level);</span>
+<span class="fc" id="L31">    String body = ucsbCurriculumService.getJSON(dept, qtr, level);</span>
 
-<span class="nc" id="L33">    return ResponseEntity.ok().body(body);</span>
+<span class="fc" id="L33">    return ResponseEntity.ok().body(body);</span>
   }
 
   // Backend for final exam info, similar to the above operation:
@@ -40,9 +40,9 @@ import org.springframework.web.bind.annotation.RestController;
       @RequestParam String quarterYYYYQ, @RequestParam String enrollCd)
       throws Exception { // Looks for quarter and code
 
-<span class="nc" id="L43">    String body = ucsbCurriculumService.getFinalsInfo(quarterYYYYQ, enrollCd);</span>
+<span class="fc" id="L43">    String body = ucsbCurriculumService.getFinalsInfo(quarterYYYYQ, enrollCd);</span>
 
-<span class="nc" id="L45">    return ResponseEntity.ok().body(body);</span>
+<span class="fc" id="L45">    return ResponseEntity.ok().body(body);</span>
   }
 
   // Backend for General Education Requirement Information, similar to above operation

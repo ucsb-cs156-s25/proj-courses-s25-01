@@ -23,6 +23,7 @@ import CourseOverTimeIndexPage from "main/pages/CourseOverTime/CourseOverTimeInd
 import CourseOverTimeInstructorIndexPage from "main/pages/CourseOverTime/CourseOverTimeInstructorIndexPage";
 
 import CourseOverTimeBuildingsIndexPage from "main/pages/CourseOverTime/CourseOverTimeBuildingsIndexPage";
+import CourseOverTimegeneraleducationIndexPage from "main/pages/CourseOverTime/CourseOverTimegeneraleducationIndexPage";
 
 import CourseDetailsIndexPage from "main/pages/CourseDetails/CourseDetailsIndexPage";
 function App() {
@@ -91,6 +92,11 @@ function App() {
           path="/courseovertime/instructorsearch"
           element={<CourseOverTimeInstructorIndexPage />}
         />
+        <Route
+        exact
+            path="/courseovertime/generaleducationsearch"
+            element={<CourseOverTimegeneraleducationIndexPage />}
+            />
         <Route
           exact
           path="/coursedetails/:qtr/:enrollCode"

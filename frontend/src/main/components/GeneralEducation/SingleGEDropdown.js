@@ -6,51 +6,51 @@ import { Form } from "react-bootstrap";
 // doesn't showdown to pre-existing dropdowns
 
 const SingleGEDropdown = ({
-  subjects,
-  subject,
-  setSubject,
+  areas,
+  area,
+  setArea,
   controlId,
   onChange = null,
   label = "GE Area",
   showAll = false,
 }) => {
-  const localSearchSubject = localStorage.getItem(controlId);
+  const localSearchArea = localStorage.getItem(controlId);
 
-  const [subjectState, setSubjectState] = useState(
+  const [AreaState, setAreaState] = useState(
     // Stryker disable next-line all : not sure how to test/mock local storage
-    localSearchSubject || subject,
+    localSearchArea || area,
   );
 
-  const handleSubjectOnChange = (event) => {
+  const handleAreaOnChange = (event) => {
     localStorage.setItem(controlId, event.target.value);
-    setSubjectState(event.target.value);
-    setSubject(event.target.value);
+    setAreaState(event.target.value);
+    setArea(event.target.value);
     if (onChange != null) {
       onChange(event);
     }
   };
 
-  subjects.sort(compareValues("subjectCode"));
+  areas.sort(compareValues("geCode"));
 
   return (
     <Form.Group controlId={controlId}>
       <Form.Label>{label}</Form.Label>
       <Form.Control
         as="select"
-        value={subjectState}
-        onChange={handleSubjectOnChange}
+        value={AreaState}
+        onChange={handleAreaOnChange}
       >
         {showAll && (
           <option data-testid={`${controlId}-option-all`} value="ALL">
             ALL
           </option>
         )}
-        {subjects.map(function (object) {
-          const subjectCode = object.subjectCode.replace(/ /g, "-");
-          const key = `${controlId}-option-${subjectCode}`;
+        {areas.map(function (object) {
+          const areaCode = object.areaCode.replace(/ /g, "-");
+          const key = `${controlId}-option-${areaCode}`;
           return (
-            <option key={key} data-testid={key} value={object.subjectCode}>
-              {object.subjectCode} - {object.subjectTranslation}
+            <option key={key} data-testid={key} value={object.geCode}>
+              {object.geCode} 
             </option>
           );
         })}

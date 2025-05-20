@@ -89,20 +89,20 @@ import org.springframework.web.bind.annotation.RestController;
       String buildingCode)
       throws JsonProcessingException {
 
-<span class="nc" id="L92">    List&lt;ConvertedSection&gt; sections =</span>
-<span class="nc" id="L93">        convertedSectionCollection.findByQuarterRangeAndBuildingCode(</span>
+<span class="fc" id="L92">    List&lt;ConvertedSection&gt; sections =</span>
+<span class="fc" id="L93">        convertedSectionCollection.findByQuarterRangeAndBuildingCode(</span>
             startQtr, endQtr, buildingCode);
 
-<span class="nc" id="L96">    List&lt;String&gt; rooms = sections.stream()</span>
-<span class="nc" id="L97">        .flatMap(cs -&gt; cs.getSection().getTimeLocations().stream())</span>
-<span class="nc" id="L98">        .filter(tl -&gt; buildingCode.equals(tl.getBuilding()))</span>
-<span class="nc" id="L99">        .map(tl -&gt; tl.getRoom())</span>
-<span class="nc" id="L100">        .distinct()</span>
-<span class="nc" id="L101">        .sorted()</span>
-<span class="nc" id="L102">        .collect(Collectors.toList());</span>
+<span class="fc" id="L96">    List&lt;String&gt; rooms = sections.stream()</span>
+<span class="fc" id="L97">        .flatMap(cs -&gt; cs.getSection().getTimeLocations().stream())</span>
+<span class="fc" id="L98">        .filter(tl -&gt; buildingCode.equals(tl.getBuilding()))</span>
+<span class="fc" id="L99">        .map(tl -&gt; tl.getRoom())</span>
+<span class="fc" id="L100">        .distinct()</span>
+<span class="fc" id="L101">        .sorted()</span>
+<span class="fc" id="L102">        .collect(Collectors.toList());</span>
 
-<span class="nc" id="L104">    String body = mapper.writeValueAsString(rooms);</span>
-<span class="nc" id="L105">    return ResponseEntity.ok().body(body);</span>
+<span class="fc" id="L104">    String body = mapper.writeValueAsString(rooms);</span>
+<span class="fc" id="L105">    return ResponseEntity.ok().body(body);</span>
   }
 
 }

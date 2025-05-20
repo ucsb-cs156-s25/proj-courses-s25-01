@@ -25,14 +25,16 @@ const CourseOverTimeGeneralEducationSearchForm = ({ fetchJSON }) => {
   const localGeneralEducation = localStorage.getItem(
     "CourseOverTimeGeneralEducationSearch.GeneralEducation",
   );
-  
+
   const [startQuarter, setStartQuarter] = useState(
     localStartQuarter || quarters[0].yyyyq,
   );
   const [endQuarter, setEndQuarter] = useState(
     localEndQuarter || quarters[0].yyyyq,
   );
-  const [selectedGEArea, setSelectedGEArea] = useState(localGeneralEducation || "");
+  const [selectedGEArea, setSelectedGEArea] = useState(
+    localGeneralEducation || "",
+  );
   // Stryker restore all
 
   const geAreas = [
@@ -44,10 +46,14 @@ const CourseOverTimeGeneralEducationSearchForm = ({ fetchJSON }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetchJSON(event, { startQuarter, endQuarter, generalEducation: selectedGEArea });
+    fetchJSON(event, {
+      startQuarter,
+      endQuarter,
+      generalEducation: selectedGEArea,
+    });
   };
 
-//   const testid = "CourseOverTimeGeneralEducationSearchForm";
+  //   const testid = "CourseOverTimeGeneralEducationSearchForm";
 
   return (
     <Form onSubmit={handleSubmit}>

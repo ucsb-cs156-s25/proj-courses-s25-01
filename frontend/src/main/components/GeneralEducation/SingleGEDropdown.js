@@ -37,22 +37,20 @@ const SingleGEDropdown = ({
   return (
     <Form.Group controlId={controlId}>
       <Form.Label>{label}</Form.Label>
-      <Form.Control
-        as="select"
-        value={AreaState}
-        onChange={handleAreaOnChange}
-      >
+      <Form.Control as="select" value={AreaState} onChange={handleAreaOnChange}>
         {showAll && (
           <option data-testid={`${controlId}-option-all`} value="ALL">
             ALL
           </option>
         )}
         {areas.map(function (object) {
-          const areaCode = object.areaCode ? object.areaCode.replace(/ /g, "-") : object.geCode;
+          const areaCode = object.areaCode
+            ? object.areaCode.replace(/ /g, "-")
+            : object.geCode;
           const key = `${controlId}-option-${areaCode}`;
           return (
             <option key={key} data-testid={key} value={object.geCode}>
-              {object.geCode} 
+              {object.geCode}
             </option>
           );
         })}

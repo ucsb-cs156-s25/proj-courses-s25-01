@@ -93,10 +93,10 @@ function App() {
           element={<CourseOverTimeInstructorIndexPage />}
         />
         <Route
-        exact
-            path="/courseovertime/generaleducationsearch"
-            element={<CourseOverTimegeneraleducationIndexPage />}
-            />
+          exact
+          path="/courseovertime/generaleducationsearch"
+          element={<CourseOverTimegeneraleducationIndexPage />}
+        />
         <Route
           exact
           path="/coursedetails/:qtr/:enrollCode"

@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/23</span>
+                <span class='fraction'>0/16</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/23</span>
+                <span class='fraction'>0/16</span>
             </div>
         
             
@@ -159,20 +159,8 @@
 <a name='L94'></a><a href='#L94'>94</a>
 <a name='L95'></a><a href='#L95'>95</a>
 <a name='L96'></a><a href='#L96'>96</a>
-<a name='L97'></a><a href='#L97'>97</a>
-<a name='L98'></a><a href='#L98'>98</a>
-<a name='L99'></a><a href='#L99'>99</a>
-<a name='L100'></a><a href='#L100'>100</a>
-<a name='L101'></a><a href='#L101'>101</a>
-<a name='L102'></a><a href='#L102'>102</a>
-<a name='L103'></a><a href='#L103'>103</a>
-<a name='L104'></a><a href='#L104'>104</a>
-<a name='L105'></a><a href='#L105'>105</a>
-<a name='L106'></a><a href='#L106'>106</a>
-<a name='L107'></a><a href='#L107'>107</a>
-<a name='L108'></a><a href='#L108'>108</a>
-<a name='L109'></a><a href='#L109'>109</a>
-<a name='L110'></a><a href='#L110'>110</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L97'></a><a href='#L97'>97</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -201,23 +189,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -227,16 +210,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -282,12 +256,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useState } from "react";
-import { Form, Button, Container, Row, Col, FormCheck } from "react-bootstrap";
+import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import { quarterRange } from "main/utils/quarterUtilities";
 import { useSystemInfo } from "main/utils/systemInfo";
 import SingleQuarterDropdown from "../Quarters/SingleQuarterDropdown";
+import SingleGEDropdown from "../GeneralEducation/SingleGEDropdown";
 &nbsp;
-const CourseOverTimeInstructorSearchForm = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >({</span> fetchJSON }) =&gt; {</span>
+const CourseOverTimeGeneralEducationSearchForm = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >({</span> fetchJSON }) =&gt; {</span>
   const { data: systemInfo } = <span class="cstat-no" title="statement not covered" >useSystemInfo();</span>
 &nbsp;
   // Stryker disable OptionalChaining
@@ -299,45 +274,37 @@ const CourseOverTimeInstructorSearchForm = <span class="cstat-no" title="stateme
 &nbsp;
   // Stryker disable all : not sure how to test/mock local storage
   const localStartQuarter = <span class="cstat-no" title="statement not covered" >localStorage.getItem(</span>
-    "CourseOverTimeInstructorSearch.StartQuarter",
+    "CourseOverTimeGeneralEducationSearch.StartQuarter",
   );
   const localEndQuarter = <span class="cstat-no" title="statement not covered" >localStorage.getItem(</span>
-    "CourseOverTimeInstructorSearch.EndQuarter",
+    "CourseOverTimeGeneralEducationSearch.EndQuarter",
   );
-  const localInstructor = <span class="cstat-no" title="statement not covered" >localStorage.getItem(</span>
-    "CourseOverTimeInstructorSearch.Instructor",
+  const localGeneralEducation = <span class="cstat-no" title="statement not covered" >localStorage.getItem(</span>
+    "CourseOverTimeGeneralEducationSearch.GeneralEducation",
   );
-  const localStorageCheckbox =
-<span class="cstat-no" title="statement not covered" >    localStorage.getItem("CourseOverTimeInstructorSearch.Checkbox") === "true";</span>
-&nbsp;
+  
   const [startQuarter, setStartQuarter] = <span class="cstat-no" title="statement not covered" >useState(</span>
     localStartQuarter || quarters[0].yyyyq,
   );
   const [endQuarter, setEndQuarter] = <span class="cstat-no" title="statement not covered" >useState(</span>
     localEndQuarter || quarters[0].yyyyq,
   );
-  const [instructor, setInstructor] = <span class="cstat-no" title="statement not covered" >useState(localInstructor || "");</span>
-  const [checkbox, setCheckbox] = <span class="cstat-no" title="statement not covered" >useState(localStorageCheckbox || false);</span>
+  const [selectedGEArea, setSelectedGEArea] = <span class="cstat-no" title="statement not covered" >useState(localGeneralEducation || "");</span>
   // Stryker restore all
+&nbsp;
+  const geAreas = <span class="cstat-no" title="statement not covered" >[</span>
+    { geCode: "A1", description: "Area A1: English Reading and Composition" },
+    { geCode: "B1", description: "Area B1: Physical Science" },
+    { geCode: "C1", description: "Area C1: Arts" },
+    // Add more GE areas as needed
+  ];
 &nbsp;
   const handleSubmit = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>vent) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    event.preventDefault();</span>
-<span class="cstat-no" title="statement not covered" >    fetchJSON(event, { startQuarter, endQuarter, instructor, checkbox });</span>
+<span class="cstat-no" title="statement not covered" >    fetchJSON(event, { startQuarter, endQuarter, generalEducation: selectedGEArea });</span>
   };
 &nbsp;
-  const handleInstructorOnChange = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>vent) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    setInstructor(event.target.value);</span>
-  };
-&nbsp;
-  const handleCheckboxOnChange = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>vent) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    setCheckbox(event.target.checked);</span>
-<span class="cstat-no" title="statement not covered" >    localStorage.setItem(</span>
-      "CourseOverTimeInstructorSearch.Checkbox",
-      event.target.checked.toString(),
-    );
-  };
-&nbsp;
-  const testid = <span class="cstat-no" title="statement not covered" >"CourseOverTimeInstructorSearchForm";</span>
+//   const testid = "CourseOverTimeGeneralEducationSearchForm";
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  return (</span>
     &lt;Form onSubmit={handleSubmit}&gt;
@@ -348,7 +315,7 @@ const CourseOverTimeInstructorSearchForm = <span class="cstat-no" title="stateme
               quarters={quarters}
               quarter={startQuarter}
               setQuarter={setStartQuarter}
-              controlId={"CourseOverTimeInstructorSearch.StartQuarter"}
+              controlId={"CourseOverTimeGeneralEducationSearch.StartQuarter"}
               label={"Start Quarter"}
             /&gt;
           &lt;/Col&gt;
@@ -357,25 +324,19 @@ const CourseOverTimeInstructorSearchForm = <span class="cstat-no" title="stateme
               quarters={quarters}
               quarter={endQuarter}
               setQuarter={setEndQuarter}
-              controlId={"CourseOverTimeInstructorSearch.EndQuarter"}
+              controlId={"CourseOverTimeGeneralEducationSearch.EndQuarter"}
               label={"End Quarter"}
             /&gt;
           &lt;/Col&gt;
         &lt;/Row&gt;
-        &lt;Form.Group controlId="CourseOverTimeInstructorSearch.Instructor"&gt;
-          &lt;Form.Label&gt;Instructor Name&lt;/Form.Label&gt;
-          &lt;Form.Control
-            onChange={handleInstructorOnChange}
-            defaultValue={instructor}
+        &lt;Form.Group controlId="CourseOverTimeGeneralEducationSearch.GEArea"&gt;
+          &lt;SingleGEDropdown
+            areas={geAreas || []}
+            area={selectedGEArea}
+            setArea={setSelectedGEArea}
+            controlId="CourseOverTimeGeneralEducationSearch.GEArea"
+            label="GE Area"
           /&gt;
-        &lt;/Form.Group&gt;
-        &lt;Form.Group controlId="CourseOverTimeInstructorSearch.Checkbox"&gt;
-          &lt;FormCheck
-            data-testid={`${testid}-checkbox`}
-            label="Lectures Only"
-            onChange={handleCheckboxOnChange}
-            checked={checkbox}
-          &gt;&lt;/FormCheck&gt;
         &lt;/Form.Group&gt;
         &lt;Row style={{ paddingTop: 10, paddingBottom: 10 }}&gt;
           &lt;Col md="auto"&gt;
@@ -389,7 +350,7 @@ const CourseOverTimeInstructorSearchForm = <span class="cstat-no" title="stateme
   );
 };
 &nbsp;
-export default CourseOverTimeInstructorSearchForm;
+export default CourseOverTimeGeneralEducationSearchForm;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -397,7 +358,7 @@ export default CourseOverTimeInstructorSearchForm;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-05-19T23:16:42.993Z
+                at 2025-05-20T04:27:28.170Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

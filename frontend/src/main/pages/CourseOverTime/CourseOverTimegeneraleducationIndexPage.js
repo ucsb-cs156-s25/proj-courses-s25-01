@@ -1,19 +1,19 @@
 import { useState } from "react";
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
-import CourseOverTimeInstructorSearchForm from "main/components/BasicCourseSearch/CourseOverTimeInstructorSearchForm";
+import CourseOverTimeGeneralEducationSearchForm from "main/components/BasicCourseSearch/CourseOverTimeGeneralEducationSearchForm";
 import { useBackendMutation } from "main/utils/useBackend";
-import SectionsInstructorTable from "main/components/Sections/SectionsInstructorTable";
+// import SingleGEDropdown from "main/components/GeneralEducation/SingleGEDropdown";
 
-export default function CourseOverTimeInstructorIndexPage() {
+export default function CourseOverTimeGeneralEducationIndexPage() {
   // Stryker disable next-line all : Can't test state because hook is internal
-  const [courseJSON, setCourseJSON] = useState([]);
+  const [setCourseJSON] = useState([]);
 
   const objectToAxiosParams = (query) => ({
-    url: "/api/public/courseovertime/instructorsearch",
+    url: "/api/public/courseovertime/generalEducationsearch",
     params: {
       startQtr: query.startQuarter,
       endQtr: query.endQuarter,
-      instructor: query.instructor,
+      generalEducation: query.generalEducation,
       lectureOnly: query.checkbox,
     },
   });
@@ -36,14 +36,9 @@ export default function CourseOverTimeInstructorIndexPage() {
   return (
     <BasicLayout>
       <div className="pt-2">
-        <h5>Welcome to the UCSB Course Instructor Search!</h5>
-        <CourseOverTimeInstructorSearchForm
+        <h5>Welcome to the UCSB Course General Education Search!</h5>
+        <CourseOverTimeGeneralEducationSearchForm
           fetchJSON={fetchCourseOverTimeJSON}
-        />
-        <SectionsInstructorTable
-          sections={courseJSON.sort((a, b) =>
-            b.courseInfo.quarter.localeCompare(a.courseInfo.quarter),
-          )}
         />
       </div>
     </BasicLayout>

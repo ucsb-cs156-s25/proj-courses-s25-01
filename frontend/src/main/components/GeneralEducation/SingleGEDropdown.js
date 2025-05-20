@@ -6,7 +6,7 @@ import { Form } from "react-bootstrap";
 // doesn't showdown to pre-existing dropdowns
 
 const SingleGEDropdown = ({
-  areas,
+  areas = [],
   area,
   setArea,
   controlId,
@@ -30,6 +30,8 @@ const SingleGEDropdown = ({
     }
   };
 
+  areas = areas || [];
+
   areas.sort(compareValues("geCode"));
 
   return (
@@ -46,7 +48,7 @@ const SingleGEDropdown = ({
           </option>
         )}
         {areas.map(function (object) {
-          const areaCode = object.areaCode.replace(/ /g, "-");
+          const areaCode = object.areaCode ? object.areaCode.replace(/ /g, "-") : object.geCode;
           const key = `${controlId}-option-${areaCode}`;
           return (
             <option key={key} data-testid={key} value={object.geCode}>

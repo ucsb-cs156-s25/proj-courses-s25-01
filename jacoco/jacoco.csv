@@ -11,12 +11,12 @@ courses,edu.ucsb.cs156.courses.controllers,PSCourseController,0,833,0,54,0,184,0
 courses,edu.ucsb.cs156.courses.controllers,CourseOverTimeInstructorController,0,40,0,2,0,11,0,3,0,2
 courses,edu.ucsb.cs156.courses.controllers,UpdateController,0,149,0,14,0,24,0,10,0,3
 courses,edu.ucsb.cs156.courses.controllers,SystemInfoController,0,7,0,0,0,2,0,2,0,2
-courses,edu.ucsb.cs156.courses.controllers,JobsController,0,165,0,2,0,33,0,15,0,14
+courses,edu.ucsb.cs156.courses.controllers,JobsController,96,165,6,2,13,33,4,15,1,14
 courses,edu.ucsb.cs156.courses.controllers,GradeHistoryController,0,18,0,0,0,5,0,3,0,3
 courses,edu.ucsb.cs156.courses.controllers,ApiController,0,33,0,0,0,10,0,6,0,6
 courses,edu.ucsb.cs156.courses.controllers,UserInfoController,0,6,0,0,0,2,0,2,0,2
 courses,edu.ucsb.cs156.courses.controllers,CoursesCSVController,0,107,0,2,0,25,0,6,0,5
-courses,edu.ucsb.cs156.courses.controllers,CourseOverTimeBuildingController,0,68,0,0,0,17,0,6,0,6
+courses,edu.ucsb.cs156.courses.controllers,CourseOverTimeBuildingController,0,24,0,0,0,6,0,2,0,2
 courses,edu.ucsb.cs156.courses.controllers,CourseOverTimeController,0,89,0,2,0,15,0,4,0,3
 courses,edu.ucsb.cs156.courses.controllers,UCSBSubjectsController,0,73,0,0,0,17,0,9,0,9
 courses,edu.ucsb.cs156.courses.documents,CoursePage,0,97,0,4,0,24,0,5,0,3

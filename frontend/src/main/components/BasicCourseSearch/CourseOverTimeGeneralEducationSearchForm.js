@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
+
 import { quarterRange } from "main/utils/quarterUtilities";
 import { useSystemInfo } from "main/utils/systemInfo";
 import SingleQuarterDropdown from "../Quarters/SingleQuarterDropdown";
 import SingleGEDropdown from "../GeneralEducation/SingleGEDropdown";
+import { useBackend } from "main/utils/useBackend";
+
 
 const CourseOverTimeGeneralEducationSearchForm = ({ fetchJSON }) => {
   const { data: systemInfo } = useSystemInfo();
@@ -11,46 +14,38 @@ const CourseOverTimeGeneralEducationSearchForm = ({ fetchJSON }) => {
   // Stryker disable OptionalChaining
   const startQtr = systemInfo?.startQtrYYYYQ || "20211";
   const endQtr = systemInfo?.endQtrYYYYQ || "20214";
-  // Stryker restore OptionalChaining
+  // Stryker enable OptionalChaining
 
   const quarters = quarterRange(startQtr, endQtr);
 
   // Stryker disable all : not sure how to test/mock local storage
-  const localStartQuarter = localStorage.getItem(
-    "CourseOverTimeGeneralEducationSearch.StartQuarter",
-  );
-  const localEndQuarter = localStorage.getItem(
-    "CourseOverTimeGeneralEducationSearch.EndQuarter",
-  );
-  const localGeneralEducation = localStorage.getItem(
-    "CourseOverTimeGeneralEducationSearch.GeneralEducation",
+  const localQuarter = localStorage.getItem("BasicSearch.Quarter");
+  const localGeneralEducation = localStorage.getItem("CourseOverTimeGeneralEducationSearch.GEArea");
+
+  const {
+    data: geAreas,
+    error: _error,
+    status: _status,
+  } = useBackend(
+    // Stryker disable next-line all : don't test internal caching of React Query
+    ["/api/public/generalEducationInfo"],
+    { method: "GET", url: "/api/public/generalEducationInfo" },
+    [],
   );
 
-  const [startQuarter, setStartQuarter] = useState(
-    localStartQuarter || quarters[0].yyyyq,
-  );
-  const [endQuarter, setEndQuarter] = useState(
-    localEndQuarter || quarters[0].yyyyq,
-  );
-  const [selectedGEArea, setSelectedGEArea] = useState(
-    localGeneralEducation || "",
+  const [quarter, setQuarter] = useState(localQuarter || quarters[0].yyyyq);
+  const [geArea, setArea] = useState(
+    localGeneralEducation || geAreas[0]
   );
   // Stryker restore all
 
-  const geAreas = [
-    { geCode: "A1", description: "Area A1: English Reading and Composition" },
-    { geCode: "B1", description: "Area B1: Physical Science" },
-    { geCode: "C1", description: "Area C1: Arts" },
-    // Add more GE areas as needed
-  ];
+  const handleGeneralEducationOnChange = (event) => {
+    setArea(event.target.value);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetchJSON(event, {
-      startQuarter,
-      endQuarter,
-      generalEducation: selectedGEArea,
-    });
+    fetchJSON(event, { quarter, geArea });
   };
 
   //   const testid = "CourseOverTimeGeneralEducationSearchForm";
@@ -62,8 +57,8 @@ const CourseOverTimeGeneralEducationSearchForm = ({ fetchJSON }) => {
           <Col md="auto">
             <SingleQuarterDropdown
               quarters={quarters}
-              quarter={startQuarter}
-              setQuarter={setStartQuarter}
+              quarter={quarter}
+              setQuarter={setQuarter}
               controlId={"CourseOverTimeGeneralEducationSearch.StartQuarter"}
               label={"Start Quarter"}
             />
@@ -71,8 +66,8 @@ const CourseOverTimeGeneralEducationSearchForm = ({ fetchJSON }) => {
           <Col md="auto">
             <SingleQuarterDropdown
               quarters={quarters}
-              quarter={endQuarter}
-              setQuarter={setEndQuarter}
+              quarter={quarter}
+              setQuarter={setQuarter}
               controlId={"CourseOverTimeGeneralEducationSearch.EndQuarter"}
               label={"End Quarter"}
             />
@@ -81,8 +76,9 @@ const CourseOverTimeGeneralEducationSearchForm = ({ fetchJSON }) => {
         <Form.Group controlId="CourseOverTimeGeneralEducationSearch.GEArea">
           <SingleGEDropdown
             areas={geAreas || []}
-            area={selectedGEArea}
-            setArea={setSelectedGEArea}
+            area={geArea}
+            setArea={setArea}
+            onChange={handleGeneralEducationOnChange}
             controlId="CourseOverTimeGeneralEducationSearch.GEArea"
             label="GE Area"
           />

@@ -1,4 +1,3 @@
-import { compareValues } from "main/utils/sortHelper";
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 
@@ -32,7 +31,7 @@ const SingleGEDropdown = ({
 
   areas = areas || [];
 
-  areas.sort(compareValues("geCode"));
+  areas.sort();
 
   return (
     <Form.Group controlId={controlId}>
@@ -43,17 +42,14 @@ const SingleGEDropdown = ({
             ALL
           </option>
         )}
-        {areas.map(function (object) {
-          const areaCode = object.areaCode
-            ? object.areaCode.replace(/ /g, "-")
-            : object.geCode;
-          const key = `${controlId}-option-${areaCode}`;
-          return (
-            <option key={key} data-testid={key} value={object.geCode}>
-              {object.geCode}
-            </option>
-          );
-        })}
+        {areas.map((geCode) => {
+      const key = `${controlId}-option-${geCode}`;
+      return (
+        <option key={key} data-testid={key} value={geCode}>
+          {geCode}
+        </option>
+      );
+    })}
       </Form.Control>
     </Form.Group>
   );

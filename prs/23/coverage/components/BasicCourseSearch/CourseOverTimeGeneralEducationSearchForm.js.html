@@ -32,14 +32,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/12</span>
+                <span class='fraction'>0/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>0/3</span>
             </div>
         
             
@@ -161,19 +161,14 @@
 <a name='L96'></a><a href='#L96'>96</a>
 <a name='L97'></a><a href='#L97'>97</a>
 <a name='L98'></a><a href='#L98'>98</a>
-<a name='L99'></a><a href='#L99'>99</a>
-<a name='L100'></a><a href='#L100'>100</a>
-<a name='L101'></a><a href='#L101'>101</a>
-<a name='L102'></a><a href='#L102'>102</a>
-<a name='L103'></a><a href='#L103'>103</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L99'></a><a href='#L99'>99</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -181,8 +176,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -190,16 +183,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -213,16 +198,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -269,10 +261,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useState } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
+&nbsp;
 import { quarterRange } from "main/utils/quarterUtilities";
 import { useSystemInfo } from "main/utils/systemInfo";
 import SingleQuarterDropdown from "../Quarters/SingleQuarterDropdown";
 import SingleGEDropdown from "../GeneralEducation/SingleGEDropdown";
+import { useBackend } from "main/utils/useBackend";
+&nbsp;
 &nbsp;
 const CourseOverTimeGeneralEducationSearchForm = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >({</span> fetchJSON }) =&gt; {</span>
   const { data: systemInfo } = <span class="cstat-no" title="statement not covered" >useSystemInfo();</span>
@@ -280,46 +275,38 @@ const CourseOverTimeGeneralEducationSearchForm = <span class="cstat-no" title="s
   // Stryker disable OptionalChaining
   const startQtr = <span class="cstat-no" title="statement not covered" >systemInfo?.startQtrYYYYQ || "20211";</span>
   const endQtr = <span class="cstat-no" title="statement not covered" >systemInfo?.endQtrYYYYQ || "20214";</span>
-  // Stryker restore OptionalChaining
+  // Stryker enable OptionalChaining
 &nbsp;
   const quarters = <span class="cstat-no" title="statement not covered" >quarterRange(startQtr, endQtr);</span>
 &nbsp;
   // Stryker disable all : not sure how to test/mock local storage
-  const localStartQuarter = <span class="cstat-no" title="statement not covered" >localStorage.getItem(</span>
-    "CourseOverTimeGeneralEducationSearch.StartQuarter",
-  );
-  const localEndQuarter = <span class="cstat-no" title="statement not covered" >localStorage.getItem(</span>
-    "CourseOverTimeGeneralEducationSearch.EndQuarter",
-  );
-  const localGeneralEducation = <span class="cstat-no" title="statement not covered" >localStorage.getItem(</span>
-    "CourseOverTimeGeneralEducationSearch.GeneralEducation",
+  const localQuarter = <span class="cstat-no" title="statement not covered" >localStorage.getItem("BasicSearch.Quarter");</span>
+  const localGeneralEducation = <span class="cstat-no" title="statement not covered" >localStorage.getItem("CourseOverTimeGeneralEducationSearch.GEArea");</span>
+&nbsp;
+  const {
+    data: geAreas,
+    error: _error,
+    status: _status,
+  } = <span class="cstat-no" title="statement not covered" >useBackend(</span>
+    // Stryker disable next-line all : don't test internal caching of React Query
+    ["/api/public/generalEducationInfo"],
+    { method: "GET", url: "/api/public/generalEducationInfo" },
+    [],
   );
 &nbsp;
-  const [startQuarter, setStartQuarter] = <span class="cstat-no" title="statement not covered" >useState(</span>
-    localStartQuarter || quarters[0].yyyyq,
-  );
-  const [endQuarter, setEndQuarter] = <span class="cstat-no" title="statement not covered" >useState(</span>
-    localEndQuarter || quarters[0].yyyyq,
-  );
-  const [selectedGEArea, setSelectedGEArea] = <span class="cstat-no" title="statement not covered" >useState(</span>
-    localGeneralEducation || "",
+  const [quarter, setQuarter] = <span class="cstat-no" title="statement not covered" >useState(localQuarter || quarters[0].yyyyq);</span>
+  const [geArea, setArea] = <span class="cstat-no" title="statement not covered" >useState(</span>
+    localGeneralEducation || geAreas[0]
   );
   // Stryker restore all
 &nbsp;
-  const geAreas = <span class="cstat-no" title="statement not covered" >[</span>
-    { geCode: "A1", description: "Area A1: English Reading and Composition" },
-    { geCode: "B1", description: "Area B1: Physical Science" },
-    { geCode: "C1", description: "Area C1: Arts" },
-    // Add more GE areas as needed
-  ];
+  const handleGeneralEducationOnChange = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>vent) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    setArea(event.target.value);</span>
+  };
 &nbsp;
   const handleSubmit = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>vent) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    event.preventDefault();</span>
-<span class="cstat-no" title="statement not covered" >    fetchJSON(event, {</span>
-      startQuarter,
-      endQuarter,
-      generalEducation: selectedGEArea,
-    });
+<span class="cstat-no" title="statement not covered" >    fetchJSON(event, { quarter, geArea });</span>
   };
 &nbsp;
   //   const testid = "CourseOverTimeGeneralEducationSearchForm";
@@ -331,8 +318,8 @@ const CourseOverTimeGeneralEducationSearchForm = <span class="cstat-no" title="s
           &lt;Col md="auto"&gt;
             &lt;SingleQuarterDropdown
               quarters={quarters}
-              quarter={startQuarter}
-              setQuarter={setStartQuarter}
+              quarter={quarter}
+              setQuarter={setQuarter}
               controlId={"CourseOverTimeGeneralEducationSearch.StartQuarter"}
               label={"Start Quarter"}
             /&gt;
@@ -340,8 +327,8 @@ const CourseOverTimeGeneralEducationSearchForm = <span class="cstat-no" title="s
           &lt;Col md="auto"&gt;
             &lt;SingleQuarterDropdown
               quarters={quarters}
-              quarter={endQuarter}
-              setQuarter={setEndQuarter}
+              quarter={quarter}
+              setQuarter={setQuarter}
               controlId={"CourseOverTimeGeneralEducationSearch.EndQuarter"}
               label={"End Quarter"}
             /&gt;
@@ -350,8 +337,9 @@ const CourseOverTimeGeneralEducationSearchForm = <span class="cstat-no" title="s
         &lt;Form.Group controlId="CourseOverTimeGeneralEducationSearch.GEArea"&gt;
           &lt;SingleGEDropdown
             areas={geAreas || []}
-            area={selectedGEArea}
-            setArea={setSelectedGEArea}
+            area={geArea}
+            setArea={setArea}
+            onChange={handleGeneralEducationOnChange}
             controlId="CourseOverTimeGeneralEducationSearch.GEArea"
             label="GE Area"
           /&gt;
@@ -376,7 +364,7 @@ export default CourseOverTimeGeneralEducationSearchForm;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-05-20T04:28:44.859Z
+                at 2025-05-21T04:43:54.111Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

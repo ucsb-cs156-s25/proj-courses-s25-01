@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">95.65% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>22/23</span>
+                <span class='fraction'>23/23</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">87.5% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>7/8</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">95% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>19/20</span>
+                <span class='fraction'>20/20</span>
             </div>
         
             
@@ -138,12 +138,7 @@
 <a name='L73'></a><a href='#L73'>73</a>
 <a name='L74'></a><a href='#L74'>74</a>
 <a name='L75'></a><a href='#L75'>75</a>
-<a name='L76'></a><a href='#L76'>76</a>
-<a name='L77'></a><a href='#L77'>77</a>
-<a name='L78'></a><a href='#L78'>78</a>
-<a name='L79'></a><a href='#L79'>79</a>
-<a name='L80'></a><a href='#L80'>80</a>
-<a name='L81'></a><a href='#L81'>81</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L76'></a><a href='#L76'>76</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -160,7 +155,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -172,7 +166,6 @@
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -183,14 +176,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">5x</span>
@@ -198,7 +189,6 @@
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -240,7 +230,6 @@ export default function CourseOverTimeBuildingsIndexPage() {
     buildingCode: "",
   });
 &nbsp;
-  // — your existing “buildingsearch” mutation —
   const objectToAxiosParams = (q) =&gt; ({
     url: "/api/public/courseovertime/buildingsearch",
     params: {
@@ -252,7 +241,6 @@ export default function CourseOverTimeBuildingsIndexPage() {
   const onSuccess = (buildings) =&gt; setCourseJSON(buildings);
   const mutation = useBackendMutation(objectToAxiosParams, { onSuccess }, []);
 &nbsp;
-  // — your “classrooms” mutation —
   const objectToAxiosParamsClassrooms = (q) =&gt; ({
     url: "/api/public/courseovertime/classrooms",
     params: {
@@ -263,15 +251,13 @@ export default function CourseOverTimeBuildingsIndexPage() {
   });
   const classroomMutation = useBackendMutation(
     objectToAxiosParamsClassrooms,
-    { onSuccess: <span class="fstat-no" title="function not covered" >(r</span>ooms) =&gt; <span class="cstat-no" title="statement not covered" >setAvailableClassrooms(rooms) </span>},
+    { onSuccess: (rooms) =&gt; setAvailableClassrooms(rooms) },
     [],
   );
 &nbsp;
-  // &lt;-- pull out exactly the bits our effect uses --&gt;
   const { startQuarter, endQuarter, buildingCode } = latestQuery;
   const fetchClassrooms = classroomMutation.mutate;
 &nbsp;
-  // effect now only depends on primitives + the stable fetchClassrooms fn
   useEffect(() =&gt; {
     if (!buildingCode) {
       setAvailableClassrooms([]);
@@ -280,7 +266,6 @@ export default function CourseOverTimeBuildingsIndexPage() {
     fetchClassrooms({ startQuarter, endQuarter, buildingCode });
   }, [startQuarter, endQuarter, buildingCode, fetchClassrooms]);
 &nbsp;
-  // single handler to run both API calls
   function fetchCourseOverTimeJSON(_e, query) {
     mutation.mutate(query);
     setLatestQuery(query);
@@ -310,7 +295,7 @@ export default function CourseOverTimeBuildingsIndexPage() {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-05-21T02:23:27.293Z
+                at 2025-05-21T02:56:57.987Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

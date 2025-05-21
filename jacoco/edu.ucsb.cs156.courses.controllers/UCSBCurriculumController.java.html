@@ -45,21 +45,11 @@ import org.springframework.web.bind.annotation.RestController;
   }
 
   // Backend for General Education Requirement Information, similar to above operation
-
-  // This function returns a hard coded list of General Education Areas
-  @Operation(summary = &quot;Get static list of General Education Areas&quot;)
-  @GetMapping(value = &quot;/staticGeneralEducationInfo&quot;, produces = &quot;application/json&quot;)
-  public ResponseEntity&lt;String[]&gt; staticGeneralEducationInfo() throws Exception {
-<span class="fc" id="L53">    String[] body = ucsbCurriculumService.getStaticGeInfo();</span>
-<span class="fc" id="L54">    return ResponseEntity.ok().body(body);</span>
-  }
-
-  // This returns courses entirely (Need to fix)
   @Operation(summary = &quot;Get list of General Education Areas&quot;)
   @GetMapping(value = &quot;/generalEducationInfo&quot;, produces = &quot;application/json&quot;)
-  public ResponseEntity&lt;String&gt; generalEducationInfo() throws Exception {
-<span class="fc" id="L61">    String body = ucsbCurriculumService.getGeInfo();</span>
-<span class="fc" id="L62">    return ResponseEntity.ok().body(body);</span>
+  public ResponseEntity&lt;String[]&gt; generalEducationInfo() throws Exception {
+<span class="fc" id="L51">    String[] body = ucsbCurriculumService.getGeInfo();</span>
+<span class="fc" id="L52">    return ResponseEntity.ok().body(body);</span>
   }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

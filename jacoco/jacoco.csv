@@ -3,7 +3,7 @@ courses,edu.ucsb.cs156.courses.controllers,CSRFController,0,5,0,0,0,2,0,2,0,2
 courses,edu.ucsb.cs156.courses.controllers,EnrollmentController,0,98,0,2,0,21,0,5,0,4
 courses,edu.ucsb.cs156.courses.controllers,PersonalSectionsController,0,82,0,2,0,18,0,5,0,4
 courses,edu.ucsb.cs156.courses.controllers,PersonalSchedulesController,0,348,0,16,0,79,0,26,0,18
-courses,edu.ucsb.cs156.courses.controllers,UCSBCurriculumController,0,44,0,0,0,10,0,6,0,6
+courses,edu.ucsb.cs156.courses.controllers,UCSBCurriculumController,0,36,0,0,0,8,0,5,0,5
 courses,edu.ucsb.cs156.courses.controllers,UCSBAPIQuarterController,0,25,0,0,0,7,0,6,0,6
 courses,edu.ucsb.cs156.courses.controllers,UCSBSectionsController,0,29,0,0,0,6,0,3,0,3
 courses,edu.ucsb.cs156.courses.controllers,UsersController,0,16,0,0,0,4,0,2,0,2
@@ -35,6 +35,7 @@ courses,edu.ucsb.cs156.courses.jobs,UpdateCourseDataJob,0,228,0,14,0,55,0,11,0,4
 courses,edu.ucsb.cs156.courses.errors,EntityNotFoundException,0,47,0,0,0,8,0,2,0,2
 courses,edu.ucsb.cs156.courses.errors,BadEnrollCdException,0,12,0,0,0,3,0,1,0,1
 courses,edu.ucsb.cs156.courses.entities,GradeHistory,0,23,0,4,0,4,0,4,0,2
+courses,edu.ucsb.cs156.courses.entities,GEArea,3,0,0,0,1,0,1,0,1,0
 courses,edu.ucsb.cs156.courses.models,SectionCSVLine,0,44,0,2,0,11,0,3,0,2
 courses,edu.ucsb.cs156.courses.models,Quarter,0,412,0,43,0,81,0,43,0,21
 courses,edu.ucsb.cs156.courses.services,UCSBSubjectsService,0,86,0,0,0,23,0,5,0,5
@@ -48,7 +49,7 @@ courses,edu.ucsb.cs156.courses.services,UCSBAPIQuarterService,0,439,0,34,0,103,0
 courses,edu.ucsb.cs156.courses.services,UCSBSubjectsService.new TypeReference() {...},0,3,0,0,0,1,0,1,0,1
 courses,edu.ucsb.cs156.courses.services,UCSBGradeHistoryServiceImpl,0,205,0,6,0,51,0,11,0,8
 courses,edu.ucsb.cs156.courses.services,UpdateService,0,38,0,2,0,9,0,3,0,2
-courses,edu.ucsb.cs156.courses.services,UCSBCurriculumService,0,853,0,10,0,157,0,17,0,12
+courses,edu.ucsb.cs156.courses.services,UCSBCurriculumService,0,728,0,6,0,134,0,14,0,11
 courses,edu.ucsb.cs156.courses.utilities,CourseUtilities,0,68,0,2,0,12,0,2,0,1
 courses,edu.ucsb.cs156.courses.services.jobs,JobContext,0,48,0,4,0,6,0,4,0,2
 courses,edu.ucsb.cs156.courses.services.jobs,JobService,0,75,0,2,0,20,0,6,0,5

@@ -4,11 +4,11 @@ import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import { quarterRange } from "main/utils/quarterUtilities";
 import { useSystemInfo } from "main/utils/systemInfo";
 import SingleQuarterDropdown from "../Quarters/SingleQuarterDropdown";
-import SingleGEDropdown from "../GeneralEducation/SingleGEDropdown";
+import SingleGEDropdown from "./SingleGEDropdown";
 import { useBackend } from "main/utils/useBackend";
 
 
-const CourseOverTimeGeneralEducationSearchForm = ({ fetchJSON }) => {
+const GeneralEducationSearchForm = ({ fetchJSON }) => {
   const { data: systemInfo } = useSystemInfo();
 
   // Stryker disable OptionalChaining
@@ -20,7 +20,7 @@ const CourseOverTimeGeneralEducationSearchForm = ({ fetchJSON }) => {
 
   // Stryker disable all : not sure how to test/mock local storage
   const localQuarter = localStorage.getItem("BasicSearch.Quarter");
-  const localGeneralEducation = localStorage.getItem("CourseOverTimeGeneralEducationSearch.GEArea");
+  const localGeneralEducation = localStorage.getItem("GeneralEducationSearch.GEArea");
 
   const {
     data: geAreas,
@@ -48,7 +48,7 @@ const CourseOverTimeGeneralEducationSearchForm = ({ fetchJSON }) => {
     fetchJSON(event, { quarter, geArea });
   };
 
-  //   const testid = "CourseOverTimeGeneralEducationSearchForm";
+  //   const testid = "GeneralEducationSearchForm";
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -59,7 +59,7 @@ const CourseOverTimeGeneralEducationSearchForm = ({ fetchJSON }) => {
               quarters={quarters}
               quarter={quarter}
               setQuarter={setQuarter}
-              controlId={"CourseOverTimeGeneralEducationSearch.StartQuarter"}
+              controlId={"GeneralEducationSearch.StartQuarter"}
               label={"Start Quarter"}
             />
           </Col>
@@ -68,18 +68,18 @@ const CourseOverTimeGeneralEducationSearchForm = ({ fetchJSON }) => {
               quarters={quarters}
               quarter={quarter}
               setQuarter={setQuarter}
-              controlId={"CourseOverTimeGeneralEducationSearch.EndQuarter"}
+              controlId={"GeneralEducationSearch.EndQuarter"}
               label={"End Quarter"}
             />
           </Col>
         </Row>
-        <Form.Group controlId="CourseOverTimeGeneralEducationSearch.GEArea">
+        <Form.Group controlId="GeneralEducationSearch.GEArea">
           <SingleGEDropdown
             areas={geAreas || []}
             area={geArea}
             setArea={setArea}
             onChange={handleGeneralEducationOnChange}
-            controlId="CourseOverTimeGeneralEducationSearch.GEArea"
+            controlId="GeneralEducationSearch.GEArea"
             label="GE Area"
           />
         </Form.Group>
@@ -95,4 +95,4 @@ const CourseOverTimeGeneralEducationSearchForm = ({ fetchJSON }) => {
   );
 };
 
-export default CourseOverTimeGeneralEducationSearchForm;
+export default GeneralEducationSearchForm;

@@ -23,7 +23,6 @@ import CourseOverTimeIndexPage from "main/pages/CourseOverTime/CourseOverTimeInd
 import CourseOverTimeInstructorIndexPage from "main/pages/CourseOverTime/CourseOverTimeInstructorIndexPage";
 
 import CourseOverTimeBuildingsIndexPage from "main/pages/CourseOverTime/CourseOverTimeBuildingsIndexPage";
-import CourseOverTimegeneraleducationIndexPage from "main/pages/CourseOverTime/CourseOverTimegeneraleducationIndexPage";
 
 import GeneralEducationSearchPage from "main/pages/GeneralEducation/GeneralEducationSearchPage";
 
@@ -96,13 +95,8 @@ function App() {
         />
         <Route
           exact
-<<<<<<< HEAD
-          path="/courseovertime/generaleducationsearch"
-          element={<CourseOverTimegeneraleducationIndexPage />}
-=======
           path="/generaleducation/search"
           element={<GeneralEducationSearchPage />}
->>>>>>> origin
         />
         <Route
           exact

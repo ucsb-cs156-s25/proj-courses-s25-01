@@ -152,4 +152,45 @@ describe("CourseOverTimeBuildingsIndexPage tests", () => {
 
     spy.mockRestore();
   });
+
+  test("also calls the classrooms endpoint with the same params", async () => {
+    axiosMock.onGet("/api/public/courseovertime/buildingsearch").reply(200, []);
+    axiosMock
+      .onGet("/api/public/courseovertime/classrooms")
+      .reply(200, ["1004", "2110"]);
+
+    render(
+      <QueryClientProvider client={queryClient}>
+        <MemoryRouter>
+          <CourseOverTimeBuildingsIndexPage />
+        </MemoryRouter>
+      </QueryClientProvider>,
+    );
+
+    const selectStartQuarter = screen.getByLabelText("Start Quarter");
+    userEvent.selectOptions(selectStartQuarter, "20222");
+    const selectEndQuarter = screen.getByLabelText("End Quarter");
+    userEvent.selectOptions(selectEndQuarter, "20222");
+    const selectBuilding = screen.getByLabelText("Building Name");
+    userEvent.selectOptions(selectBuilding, "GIRV");
+    const submitButton = screen.getByText("Submit");
+    userEvent.click(submitButton);
+
+    await waitFor(() => {
+      const calls = axiosMock.history.get.filter((r) =>
+        r.url.includes("/courseovertime/"),
+      );
+      expect(calls).toHaveLength(2);
+    });
+
+    const clsCall = axiosMock.history.get.find((r) =>
+      r.url.includes("/courseovertime/classrooms"),
+    );
+    expect(clsCall).toBeDefined();
+    expect(clsCall.params).toEqual({
+      startQtr: "20222",
+      endQtr: "20222",
+      buildingCode: "GIRV",
+    });
+  });
 });

@@ -32,6 +32,7 @@ export default function CourseOverTimeInstructorIndexPage() {
   async function fetchCourseOverTimeJSON(_event, query) {
     mutation.mutate(query);
   }
+  console.log("courseJSON:", courseJSON);
 
   return (
     <BasicLayout>

@@ -5,7 +5,7 @@ import { Form } from "react-bootstrap";
 // doesn't showdown to pre-existing dropdowns
 
 const SingleGEDropdown = ({
-  areas = [],
+  areas,
   area,
   setArea,
   controlId,
@@ -29,9 +29,7 @@ const SingleGEDropdown = ({
     }
   };
 
-  areas = areas || [];
-
-  areas.sort();
+  areas.sort((a, b) => a.requirementCode.localeCompare(b.requirementCode));
 
   return (
     <Form.Group controlId={controlId}>
@@ -42,14 +40,14 @@ const SingleGEDropdown = ({
             ALL
           </option>
         )}
-        {areas.map((geCode) => {
-      const key = `${controlId}-option-${geCode}`;
-      return (
-        <option key={key} data-testid={key} value={geCode}>
-          {geCode}
-        </option>
-      );
-    })}
+        {areas.map(({ requirementCode }) => {
+          const key = `${controlId}-option-${requirementCode}`;
+          return (
+            <option key={key} data-testid={key} value={requirementCode}>
+              {requirementCode}
+            </option>
+          );
+        })}
       </Form.Control>
     </Form.Group>
   );

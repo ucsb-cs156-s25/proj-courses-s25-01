@@ -2,7 +2,7 @@ import { useState } from "react";
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
 import GeneralEducationSearchForm from "main/components/GeneralEducation/GeneralEducationSearchForm";
 import { useBackendMutation } from "main/utils/useBackend";
-import BasicCourseTable from "main/components/Courses/BasicCourseTable";
+import SectionsOverTimeTable from "main/components/Sections/SectionsOverTimeTable";
 
 export default function GeneralEducationSearchPage() {
   // Stryker disable next-line all : Can't test state because hook is internal
@@ -11,13 +11,14 @@ export default function GeneralEducationSearchPage() {
   const objectToAxiosParams = (query) => ({
     url: "/api/public/generalEducation/gesearch",
     params: {
-      startQtr: query.quarter,
-      endQtr: query.quarter,
-      geCode: query.geArea,
+      startQtr: query.startQuarter,
+      endQtr: query.endQuarter,
+      geCode: query.geCode,
     },
   });
 
   const onSuccess = (courses) => {
+    console.log("Fetched courses:", courses);
     setCourseJSON(courses);
   };
 
@@ -40,7 +41,7 @@ export default function GeneralEducationSearchPage() {
         <GeneralEducationSearchForm
           fetchJSON={fetchJSON}
         />
-        <BasicCourseTable courses={courseJSON}
+        <SectionsOverTimeTable sections={courseJSON}
         />
       </div>
     </BasicLayout>

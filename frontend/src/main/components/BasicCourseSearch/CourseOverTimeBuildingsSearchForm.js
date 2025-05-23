@@ -3,38 +3,52 @@
 import { useState, useEffect } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 
-import { allBuildings }        from "fixtures/buildingFixtures";
-import { quarterRange }        from "main/utils/quarterUtilities";
-import { useSystemInfo }       from "main/utils/systemInfo";
+import { allBuildings } from "fixtures/buildingFixtures";
+import { quarterRange } from "main/utils/quarterUtilities";
+import { useSystemInfo } from "main/utils/systemInfo";
 
-import SingleQuarterDropdown  from "../Quarters/SingleQuarterDropdown";
+import SingleQuarterDropdown from "../Quarters/SingleQuarterDropdown";
 import SingleBuildingDropdown from "../Buildings/SingleBuildingDropdown";
 
 const CourseOverTimeBuildingsSearchForm = ({
   fetchJSON,
   availableClassrooms,
-  fetchClassrooms
+  fetchClassrooms,
 }) => {
   const { data: systemInfo } = useSystemInfo();
 
-  // derive the full list of quarters from system info
+  // derive quarter list
+  // Stryker disable OptionalChaining
   const startQtr = systemInfo?.startQtrYYYYQ || "20211";
-  const endQtr   = systemInfo?.endQtrYYYYQ   || "20214";
+  const endQtr = systemInfo?.endQtrYYYYQ || "20214";
+  // Stryker restore OptionalChaining
   const quarters = quarterRange(startQtr, endQtr);
 
-  // Stryker disable all : localStorage mocking is hard
-  const localStartQuarter = localStorage.getItem("CourseOverTimeBuildingsSearch.StartQuarter");
-  const localEndQuarter   = localStorage.getItem("CourseOverTimeBuildingsSearch.EndQuarter");
-  const localBuildingCode = localStorage.getItem("CourseOverTimeBuildingsSearch.BuildingCode");
-  const localClassroom    = localStorage.getItem("CourseOverTimeBuildingsSearch.Classroom");
+  // Stryker disable all : localStorage mocks are tricky
+  const localStartQuarter = localStorage.getItem(
+    "CourseOverTimeBuildingsSearch.StartQuarter",
+  );
+  const localEndQuarter = localStorage.getItem(
+    "CourseOverTimeBuildingsSearch.EndQuarter",
+  );
+  const localBuildingCode = localStorage.getItem(
+    "CourseOverTimeBuildingsSearch.BuildingCode",
+  );
+  const localClassroom = localStorage.getItem(
+    "CourseOverTimeBuildingsSearch.Classroom",
+  );
   // Stryker restore all
 
-  const [startQuarter, setStartQuarter] = useState(localStartQuarter || quarters[0].yyyyq);
-  const [endQuarter,   setEndQuarter]   = useState(localEndQuarter   || quarters[0].yyyyq);
+  const [startQuarter, setStartQuarter] = useState(
+    localStartQuarter || quarters[0].yyyyq,
+  );
+  const [endQuarter, setEndQuarter] = useState(
+    localEndQuarter || quarters[0].yyyyq,
+  );
   const [buildingCode, setBuildingCode] = useState(localBuildingCode || "");
-  const [classroom,    setClassroom]    = useState(localClassroom    || "");
+  const [classroom, setClassroom] = useState(localClassroom || "");
 
-  // Whenever startQuarter, endQuarter or buildingCode changes, re-fetch classrooms
+  // auto‐fetch rooms when building or quarters change
   useEffect(() => {
     if (buildingCode) {
       fetchClassrooms({ startQuarter, endQuarter, buildingCode });
@@ -44,11 +58,20 @@ const CourseOverTimeBuildingsSearchForm = ({
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // persist selections
-    localStorage.setItem("CourseOverTimeBuildingsSearch.StartQuarter", startQuarter);
-    localStorage.setItem("CourseOverTimeBuildingsSearch.EndQuarter",   endQuarter);
-    localStorage.setItem("CourseOverTimeBuildingsSearch.BuildingCode", buildingCode);
-    localStorage.setItem("CourseOverTimeBuildingsSearch.Classroom",    classroom);
+    // persist everything
+    localStorage.setItem(
+      "CourseOverTimeBuildingsSearch.StartQuarter",
+      startQuarter,
+    );
+    localStorage.setItem(
+      "CourseOverTimeBuildingsSearch.EndQuarter",
+      endQuarter,
+    );
+    localStorage.setItem(
+      "CourseOverTimeBuildingsSearch.BuildingCode",
+      buildingCode,
+    );
+    localStorage.setItem("CourseOverTimeBuildingsSearch.Classroom", classroom);
 
     fetchJSON(e, { startQuarter, endQuarter, buildingCode, classroom });
   };
@@ -97,18 +120,20 @@ const CourseOverTimeBuildingsSearchForm = ({
               <Form.Control
                 as="select"
                 value={classroom}
-                onChange={e => setClassroom(e.target.value)}
+                onChange={(e) => setClassroom(e.target.value)}
               >
                 <option value="">All</option>
-                {availableClassrooms.map(r => (
-                  <option key={r} value={r}>{r}</option>
+                {availableClassrooms.map((r) => (
+                  <option key={r} value={r}>
+                    {r}
+                  </option>
                 ))}
               </Form.Control>
             </Form.Group>
           </Col>
         </Row>
 
-        <Row className="mt-2">
+        <Row style={{ paddingTop: 10, paddingBottom: 10 }}>
           <Col md="auto">
             <Button variant="primary" type="submit">
               Submit

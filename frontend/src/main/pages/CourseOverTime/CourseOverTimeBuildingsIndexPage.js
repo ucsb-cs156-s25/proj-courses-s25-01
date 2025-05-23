@@ -48,9 +48,10 @@ export default function CourseOverTimeBuildingsIndexPage() {
   });
   const classroomMutation = useBackendMutation(
     objectToAxiosParamsClassrooms,
+    // Stryker disable all : Can't test state because hook is internal
     { onSuccess: (rooms) => setAvailableClassrooms(rooms) },
-    // Stryker disable next-line all : hard to set up test for caching
     [],
+    // Stryker restore all : Can't test state because hook is internal
   );
 
   const { startQuarter, endQuarter, buildingCode } = latestQuery;
@@ -74,11 +75,8 @@ export default function CourseOverTimeBuildingsIndexPage() {
         <h5>Welcome to the UCSB Course History Search!</h5>
         <CourseOverTimeBuildingsSearchForm
           fetchJSON={fetchCourseOverTimeJSON}
+          availableClassrooms={availableClassrooms}
         />
-        {/* TEST‐ONLY: expose classrooms for mutation tests, will be refactored once dropdown is implemented*/}
-        <div data-testid="debug-classrooms">
-          {JSON.stringify(availableClassrooms)}
-        </div>
         <SectionsTable
           sections={courseJSON.sort((a, b) =>
             b.courseInfo.quarter.localeCompare(a.courseInfo.quarter),

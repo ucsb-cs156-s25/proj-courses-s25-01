@@ -38,11 +38,8 @@ export default function GeneralEducationSearchPage() {
     <BasicLayout>
       <div className="pt-2">
         <h5>Welcome to the UCSB Course General Education Search!</h5>
-        <GeneralEducationSearchForm
-          fetchJSON={fetchJSON}
-        />
-        <SectionsOverTimeTable sections={courseJSON}
-        />
+        <GeneralEducationSearchForm fetchJSON={fetchJSON} />
+        <SectionsOverTimeTable sections={courseJSON} />
       </div>
     </BasicLayout>
   );

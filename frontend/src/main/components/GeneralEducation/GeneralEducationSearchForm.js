@@ -10,33 +10,31 @@ import { useBackend } from "main/utils/useBackend";
 const GeneralEducationSearchForm = ({ fetchJSON }) => {
   const { data: systemInfo } = useSystemInfo();
 
- // Stryker disable OptionalChaining
- const sqtr = systemInfo?.startQtrYYYYQ || "20211";
+  // Stryker disable OptionalChaining
+  const sqtr = systemInfo?.startQtrYYYYQ || "20211";
   const eqtr = systemInfo?.endQtrYYYYQ || "20214";
- // Stryker restore OptionalChaining
+  // Stryker restore OptionalChaining
 
- const quarters = quarterRange(sqtr, eqtr);
+  const quarters = quarterRange(sqtr, eqtr);
 
- // Stryker disable all : not sure how to test/mock local storage
- const localStartQuarter = localStorage.getItem(
-   "GeneralEducationSearch.StartQuarter",
- );
- const localEndQuarter = localStorage.getItem(
-   "GeneralEducationSearch.EndQuarter",
- );
- const localgeCode = localStorage.getItem(
-   "GeneralEducationSearch.geCode",
- );
+  // Stryker disable all : not sure how to test/mock local storage
+  const localStartQuarter = localStorage.getItem(
+    "GeneralEducationSearch.StartQuarter",
+  );
+  const localEndQuarter = localStorage.getItem(
+    "GeneralEducationSearch.EndQuarter",
+  );
+  const localgeCode = localStorage.getItem("GeneralEducationSearch.geCode");
 
- const [startQuarter, setStartQuarter] = useState(
-   localStartQuarter || quarters[0].yyyyq,
- );
- const [endQuarter, setEndQuarter] = useState(
-   localEndQuarter || quarters[0].yyyyq,
- );
- const [geCode, setgeCode] = useState(localgeCode || "A1");
+  const [startQuarter, setStartQuarter] = useState(
+    localStartQuarter || quarters[0].yyyyq,
+  );
+  const [endQuarter, setEndQuarter] = useState(
+    localEndQuarter || quarters[0].yyyyq,
+  );
+  const [geCode, setgeCode] = useState(localgeCode || "A1");
 
-   // Stryker restore all
+  // Stryker restore all
 
   const {
     data: geAreas,
@@ -53,7 +51,7 @@ const GeneralEducationSearchForm = ({ fetchJSON }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Submitting with:", { startQuarter, endQuarter, geCode });
-    fetchJSON(event, { startQuarter, endQuarter, geCode});
+    fetchJSON(event, { startQuarter, endQuarter, geCode });
   };
 
   return (
@@ -104,5 +102,3 @@ const GeneralEducationSearchForm = ({ fetchJSON }) => {
 };
 
 export default GeneralEducationSearchForm;
-
-

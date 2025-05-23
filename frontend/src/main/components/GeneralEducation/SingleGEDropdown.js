@@ -43,13 +43,13 @@ const SingleGEDropdown = ({
           </option>
         )}
         {areas.map((geCode) => {
-      const key = `${controlId}-option-${geCode}`;
-      return (
-        <option key={key} data-testid={key} value={geCode}>
-          {geCode}
-        </option>
-      );
-    })}
+          const key = `${controlId}-option-${geCode}`;
+          return (
+            <option key={key} data-testid={key} value={geCode}>
+              {geCode}
+            </option>
+          );
+        })}
       </Form.Control>
     </Form.Group>
   );

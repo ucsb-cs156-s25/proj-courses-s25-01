@@ -75,6 +75,7 @@ export default function CourseOverTimeBuildingsIndexPage() {
         <CourseOverTimeBuildingsSearchForm
           fetchJSON={fetchCourseOverTimeJSON}
           availableClassrooms={availableClassrooms}
+          fetchClassrooms={fetchClassrooms}
         />
         <SectionsTable
           sections={courseJSON.sort((a, b) =>

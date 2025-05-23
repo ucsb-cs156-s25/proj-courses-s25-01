@@ -48,10 +48,10 @@ export default function CourseOverTimeBuildingsIndexPage() {
   });
   const classroomMutation = useBackendMutation(
     objectToAxiosParamsClassrooms,
-    // Stryker disable all : Can't test state because hook is internal
+    // Stryker disable all : hard to set up test for caching
     { onSuccess: (rooms) => setAvailableClassrooms(rooms) },
     [],
-    // Stryker restore all : Can't test state because hook is internal
+    // Stryker restore all : hard to set up test for caching
   );
 
   const { startQuarter, endQuarter, buildingCode } = latestQuery;

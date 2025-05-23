@@ -11,8 +11,8 @@ const GeneralEducationSearchForm = ({ fetchJSON }) => {
   const { data: systemInfo } = useSystemInfo();
 
  // Stryker disable OptionalChaining
- const sqtr = systemInfo?.sqtrYYYYQ || "20211";
- const eqtr = systemInfo?.eqtrYYYYQ || "20214";
+ const sqtr = systemInfo?.startQtrYYYYQ || "20211";
+  const eqtr = systemInfo?.endQtrYYYYQ || "20214";
  // Stryker restore OptionalChaining
 
  const quarters = quarterRange(sqtr, eqtr);

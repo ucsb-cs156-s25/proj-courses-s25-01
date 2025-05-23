@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">64.28% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>9/14</span>
+                <span class='fraction'>14/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>8/12</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/3</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">64.28% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>9/14</span>
+                <span class='fraction'>13/13</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -118,9 +118,7 @@
 <a name='L53'></a><a href='#L53'>53</a>
 <a name='L54'></a><a href='#L54'>54</a>
 <a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a>
-<a name='L58'></a><a href='#L58'>58</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L56'></a><a href='#L56'>56</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -135,27 +133,25 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">52x</span>
+<span class="cline-any cline-yes">42x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">52x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">52x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">42x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">52x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">52x</span>
+<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">52x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">278x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">42x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -165,8 +161,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">324x</span>
-<span class="cline-any cline-yes">324x</span>
+<span class="cline-any cline-yes">310x</span>
+<span class="cline-any cline-yes">310x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -184,7 +180,7 @@ import { Form } from "react-bootstrap";
 // doesn't showdown to pre-existing dropdowns
 &nbsp;
 const SingleGEDropdown = ({
-  areas = <span class="branch-0 cbranch-no" title="branch not covered" >[],</span>
+  areas,
   area,
   setArea,
   controlId,
@@ -199,18 +195,16 @@ const SingleGEDropdown = ({
     localSearchArea || area,
   );
 &nbsp;
-  const handleAreaOnChange = <span class="fstat-no" title="function not covered" >(e</span>vent) =&gt; {
-<span class="cstat-no" title="statement not covered" >    localStorage.setItem(controlId, event.target.value);</span>
-<span class="cstat-no" title="statement not covered" >    setAreaState(event.target.value);</span>
-<span class="cstat-no" title="statement not covered" >    setArea(event.target.value);</span>
-<span class="cstat-no" title="statement not covered" >    if (onChange != null) {</span>
-<span class="cstat-no" title="statement not covered" >      onChange(event);</span>
+  const handleAreaOnChange = (event) =&gt; {
+    localStorage.setItem(controlId, event.target.value);
+    setAreaState(event.target.value);
+    setArea(event.target.value);
+    if (onChange != null) {
+      onChange(event);
     }
   };
 &nbsp;
-  areas = areas || <span class="branch-1 cbranch-no" title="branch not covered" >[];</span>
-&nbsp;
-  areas.sort();
+  areas.sort((a, b) =&gt; a.requirementCode.localeCompare(b.requirementCode));
 &nbsp;
   return (
     &lt;Form.Group controlId={controlId}&gt;
@@ -221,14 +215,14 @@ const SingleGEDropdown = ({
             ALL
           &lt;/option&gt;
         )}
-        {areas.map((geCode) =&gt; {
-      const key = `${controlId}-option-${geCode}`;
-      return (
-        &lt;option key={key} data-testid={key} value={geCode}&gt;
-          {geCode}
-        &lt;/option&gt;
-      );
-    })}
+        {areas.map(({ requirementCode }) =&gt; {
+          const key = `${controlId}-option-${requirementCode}`;
+          return (
+            &lt;option key={key} data-testid={key} value={requirementCode}&gt;
+              {requirementCode}
+            &lt;/option&gt;
+          );
+        })}
       &lt;/Form.Control&gt;
     &lt;/Form.Group&gt;
   );
@@ -241,7 +235,7 @@ export default SingleGEDropdown;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-05-23T00:43:42.010Z
+                at 2025-05-23T04:59:28.896Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
